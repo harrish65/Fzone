@@ -6,9 +6,11 @@ import QualityInternational from "../assets/quality_international.jpg";
 import SharjahElectricity from "../assets/sharjah_electricity.jpg";
 import Smidth from "../assets/smidth.jpg";
 import Technimont from "../assets/technimont.jpg";
+import LT from "../assets/L&T.jpeg"; // Add this line for L&T logo
 
 const partners = [
   { name: "General Electric", logo: GeneralElectric },
+  { name: "L&T", logo: LT },
   { name: "ProcessEng", logo: ProcessEng },
   { name: "Quality International", logo: QualityInternational },
   { name: "Sharjah Electricity", logo: SharjahElectricity },
@@ -47,14 +49,14 @@ const PartnersSlider = () => {
   return (
     <motion.section
       id="partners"
-      className="flex flex-col items-center justify-center py-12 bg-white"
+      className="flex flex-col items-center justify-center py-12 bg-yellow-100"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h2 className="text-xl md:text-2xl font-semibold text-blue-900 mb-8 tracking-wide text-center">
-        TRUSTED BY 10,000+ BUSINESSES
+      <h2 className="text-xl md:text-3xl font-semibold text-blue-900 mb-8 tracking-wide text-center">
+        Our Esteemed Partners
       </h2>
       <div className="flex flex-row gap-12 md:gap-20 items-center justify-center w-full">
         {getVisiblePartners().map((partner, idx) => (
@@ -62,7 +64,7 @@ const PartnersSlider = () => {
             <img
               src={partner.logo}
               alt={partner.name}
-              className="h-16 md:h-20 w-auto object-contain mb-2"
+              className="h-16 md:h-20 w-full object-contain mb-2"
               style={{ maxWidth: "140px" }}
             />
           </div>

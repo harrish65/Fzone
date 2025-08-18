@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-
+import { Menu } from "lucide-react";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
+  { name: "Download Brochure", href: "../assets/FZONE ENGINEERS (2) (1).pdf", download: true },
 ];
 
 const Header = () => {
@@ -54,6 +55,18 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8">
           {navLinks.map((link) => {
+            if (link.download) {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  download
+                  className="bg-orange-400 text-white px-4 rounded pt-1 pb-2  hover:bg-orange-800 transition-colors font-semibold text-base"
+                >
+                  {link.name}
+                </a>
+              );
+            }
             const isActive =
               activeHash === link.href ||
               (link.href === "#home" &&
@@ -80,28 +93,28 @@ const Header = () => {
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Toggle menu"
         >
-          <svg
-            className="w-6 h-6 text-blue-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <Menu className="w-6 h-6 text-blue-700" />
         </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="md:hidden bg-white border-t shadow-lg">
-          <div className="flex flex-col px-4 py-2 gap-4">
+        <nav className="md:hidden bg-yellow-100 border-t shadow-lg">
+          <div className="flex flex-col items-center px-4 py-2 gap-4">
             {navLinks.map((link) => {
+              if (link.download) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    download
+                    className="bg-orange-400 text-white px-3 pt-1 pb-2 rounded  hover:bg-orange-800 transition-colors font-semibold text-base"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
               const isActive =
                 activeHash === link.href ||
                 (link.href === "#home" &&

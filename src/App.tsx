@@ -1,10 +1,11 @@
-import About from "./components/About";
+// import About from "./components/AboutFounder";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Services from "./components/Services";
 import PartnersSlider from "./components/PartnersSlider";
+import AboutFounder from "./components/AboutFounder";
 
 const App = () => {
   return (
@@ -12,9 +13,10 @@ const App = () => {
       <Header />
       <main>
         <Home />
-        <About />
+        {/* <About /> */}
         <Services />
         <PartnersSlider />
+        <AboutFounder />
         <Contact />
       </main>
       <Footer />
