@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Download } from "lucide-react";
 import brochurePdf from "../assets/FZONE ENGINEERS (2) (1).pdf";
 
 const navLinks = [
@@ -62,20 +62,24 @@ const Header = () => {
                   key={link.name}
                   href={link.href}
                   download
-                  className="bg-orange-400 text-white px-4 rounded pt-1 pb-2 hover:bg-orange-800 transition-colors font-semibold text-base"
+                  className="bg-blue-900 text-white px-4 rounded pt-1 pb-2 hover:bg-blue-500 transition-colors font-semibold text-base"
                 >
                   {link.name}
                 </a>
               );
             }
             const isActive =
-              activeHash === link.href || (link.href === "#home" && (activeHash === "#home" || activeHash === ""));
+              activeHash === link.href ||
+              (link.href === "#home" &&
+                (activeHash === "#home" || activeHash === ""));
             return (
               <a
                 key={link.name}
                 href={link.href}
                 className={`font-medium transition-colors ${
-                  isActive ? "text-blue-700" : "text-gray-700 hover:text-blue-700"
+                  isActive
+                    ? "text-blue-700"
+                    : "text-gray-700 hover:text-blue-700"
                 }`}
               >
                 {link.name}
@@ -84,14 +88,24 @@ const Header = () => {
           })}
         </nav>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden flex items-center p-2"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label="Toggle menu"
-        >
-          <Menu className="w-6 h-6 text-blue-700" />
-        </button>
+        {/* Mobile Hamburger & Download Icon */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            className="flex items-center p-2"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label="Toggle menu"
+          >
+            <Menu className="w-6 h-6 text-blue-700" />
+          </button>
+          <a
+            href={navLinks.find((l) => l.download)?.href}
+            download
+            className="flex items-center p-2"
+            aria-label="Download Brochure"
+          >
+            <Download className="w-6 h-6 text-blue-700" />
+          </a>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -100,26 +114,20 @@ const Header = () => {
           <div className="flex flex-col items-center px-4 py-2 gap-4">
             {navLinks.map((link) => {
               if (link.download) {
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    download
-                    className="bg-orange-400 text-white px-3 pt-1 pb-2 rounded hover:bg-orange-800 transition-colors font-semibold text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                );
+                return null;
               }
               const isActive =
-                activeHash === link.href || (link.href === "#home" && (activeHash === "#home" || activeHash === ""));
+                activeHash === link.href ||
+                (link.href === "#home" &&
+                  (activeHash === "#home" || activeHash === ""));
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   className={`font-medium transition-colors ${
-                    isActive ? "text-blue-700" : "text-gray-700 hover:text-blue-700"
+                    isActive
+                      ? "text-blue-700"
+                      : "text-gray-700 hover:text-blue-700"
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >
