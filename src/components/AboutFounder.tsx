@@ -21,17 +21,19 @@ const AboutFounder = () => {
   return (
     <section className="max-w-5xl mx-auto py-12 px-4">
       {/* Director Section */}
-      <div className="flex flex-col md:flex-row items-center  gap-10 mb-5">
+      <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
+        Meet Our Director
+      </h2>
+      <div className="flex flex-col  items-center  gap-10 mb-5">
         <img
           src={directorImg}
           alt="Director"
           className="w-32 h-32 md:w-50 md:h-50 rounded-full object-cover shadow-lg"
         />
         <div className="flex-1">
-          <h2 className="text-2xl md:text-3xl font-bold mb-1">
+          <h2 className="text-2xl md:text-3xl font-bold mb-1 text-center">
             Mr.Kannan Ramasamy
           </h2>
-          <p className="text-blue-700 font-semibold mb-3">Director & Founder</p>
           <p className="mb-2 text-gray-700">
             <span className="font-bold">Mr.Kannan Ramasamy</span> has been the Director of Frightzone Engineers since 2012. He holds a
             Bachelor's in Mechanical Engineering and a Master's in Industrial
@@ -40,7 +42,7 @@ const AboutFounder = () => {
             Engineers provides services with excellence and technical integrity
             across India and the Gulf region.
           </p>
-          <ul className="list-disc pl-5 text-gray-600">
+          <ul className="list-disc list-inside text-gray-600">
             <li>20+ years in engineering and consulting</li>
             <li>Certified ASME and ISO auditor</li>
             <li>Proven track record in project delivery</li>
@@ -48,19 +50,7 @@ const AboutFounder = () => {
           </ul>
         </div>
       </div>
-      {/* Commitment Section */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <CommitmentBlock
-          icon={<ShieldCheck className="w-8 h-8 text-blue-700" />}
-          title="Confidentiality"
-          description="We strictly protect all client data and project information, ensuring complete confidentiality at every stage."
-        />
-        <CommitmentBlock
-          icon={<FileCheck2 className="w-8 h-8 text-blue-700" />}
-          title="Audit"
-          description="Our audit processes are transparent, thorough, and aligned with international standards for maximum trust."
-        />
-      </div> */}
+ 
     </section>
   );
 };

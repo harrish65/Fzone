@@ -48,23 +48,25 @@ const Services = () => {
   return (
     <motion.section
       id="services"
-      className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4 bg-blue-200"
+      className="flex flex-col items-center justify-center text-center px-4 py-8 bg-blue-200"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <section className="max-w-6xl mx-auto py-12 px-4 ">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Our Services</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+          Our Services
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {serviceGroups.map((group, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-lg shadow p-6 flex flex-col items-start"
+              className="bg-white rounded-lg shadow p-6 flex flex-col items-start w-full"
             >
               <div className="flex flex-row items-center gap-2 mb-2 w-full">
                 {group.icon}
-                <span className="text-lg md:text-xl font-bold md:ml-2 ml-1 text-left md:text-left text-gray-900">
+                <span className="text-lg md:text-xl font-bold md:ml-2 ml-1 text-left text-gray-900">
                   {group.title}
                 </span>
               </div>

@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
+import brochurePdf from "../assets/FZONE ENGINEERS (2) (1).pdf";
+
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
-  { name: "Download Brochure", href: "../assets/FZONE ENGINEERS (2) (1).pdf", download: true },
+  { name: "Download Brochure", href: brochurePdf, download: true },
 ];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [activeHash, setActiveHash] = useState(window.location.hash || "#home");
 
   useEffect(() => {
@@ -61,24 +62,20 @@ const Header = () => {
                   key={link.name}
                   href={link.href}
                   download
-                  className="bg-orange-400 text-white px-4 rounded pt-1 pb-2  hover:bg-orange-800 transition-colors font-semibold text-base"
+                  className="bg-orange-400 text-white px-4 rounded pt-1 pb-2 hover:bg-orange-800 transition-colors font-semibold text-base"
                 >
                   {link.name}
                 </a>
               );
             }
             const isActive =
-              activeHash === link.href ||
-              (link.href === "#home" &&
-                (activeHash === "#home" || activeHash === ""));
+              activeHash === link.href || (link.href === "#home" && (activeHash === "#home" || activeHash === ""));
             return (
               <a
                 key={link.name}
                 href={link.href}
                 className={`font-medium transition-colors ${
-                  isActive
-                    ? "text-blue-700"
-                    : "text-gray-700 hover:text-blue-700"
+                  isActive ? "text-blue-700" : "text-gray-700 hover:text-blue-700"
                 }`}
               >
                 {link.name}
@@ -108,7 +105,7 @@ const Header = () => {
                     key={link.name}
                     href={link.href}
                     download
-                    className="bg-orange-400 text-white px-3 pt-1 pb-2 rounded  hover:bg-orange-800 transition-colors font-semibold text-base"
+                    className="bg-orange-400 text-white px-3 pt-1 pb-2 rounded hover:bg-orange-800 transition-colors font-semibold text-base"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.name}
@@ -116,17 +113,13 @@ const Header = () => {
                 );
               }
               const isActive =
-                activeHash === link.href ||
-                (link.href === "#home" &&
-                  (activeHash === "#home" || activeHash === ""));
+                activeHash === link.href || (link.href === "#home" && (activeHash === "#home" || activeHash === ""));
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   className={`font-medium transition-colors ${
-                    isActive
-                      ? "text-blue-700"
-                      : "text-gray-700 hover:text-blue-700"
+                    isActive ? "text-blue-700" : "text-gray-700 hover:text-blue-700"
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >
