@@ -7,18 +7,18 @@ import Services from "./components/Services";
 import PartnersSlider from "./components/PartnersSlider";
 import AboutFounder from "./components/AboutFounder";
 
-import SoftwareExpertise from "./components/SoftwareExpertise";
+// import SoftwareExpertise from "./components/SoftwareExpertise";
 import About from "./components/About";
 
 const App = () => {
   return (
-    <div className="font-medium text-red-900 px-1">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main>
         <Home />
         <About />
         <Services />
-    <SoftwareExpertise />
+    {/* <SoftwareExpertise /> */}
         <PartnersSlider />
         <AboutFounder />
         <Contact />

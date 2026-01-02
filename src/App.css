@@ -1,0 +1,47 @@
+/* Hero section custom styles */
+.hero {
+  background-color: #0b1520;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
+  width: 140%;
+  height: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(115, 59, 128, 0.95) 0%,
+    rgba(75, 45, 95, 0.65) 18%,
+    rgba(11, 21, 32, 0) 60%
+  );
+  filter: blur(44px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 200ms ease, transform 120ms ease;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px);
+}
+
+/* small utility to slightly dim text on secondary link */
+.hero a.text-secondary {
+  color: rgba(255, 255, 255, 0.9);
+}

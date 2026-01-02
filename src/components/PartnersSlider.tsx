@@ -39,7 +39,7 @@ const PartnersSlider = () => {
   }, [total]);
 
   const getVisiblePartners = () => {
-    let arr = [];
+    const arr = [];
     for (let i = 0; i < visible; i++) {
       arr.push(partners[(current + i) % total]);
     }
