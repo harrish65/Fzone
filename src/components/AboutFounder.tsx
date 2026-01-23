@@ -49,12 +49,13 @@ const AboutFounder = () => {
             Mr.Kannan Ramasamy
           </h2>
           <p className="mb-2 text-gray-700">
-            <span className="font-bold">Mr.Kannan Ramasamy</span> has been the Director of Frightzone Engineers since 2012. He holds a
-            Bachelor's in Mechanical Engineering and a Master's in Industrial
-            Metallurgy, and is a certified ASME Authorized Inspector, ASNT Level
-            III NDT Professional, and PED Qualified Professional. Frightzone
-            Engineers provides services with excellence and technical integrity
-            across India and the Gulf region.
+            <span className="font-bold">Mr.Kannan Ramasamy</span> has been the
+            Director of Frightzone Engineers since 2012. He holds a Bachelor's
+            in Mechanical Engineering and a Master's in Industrial Metallurgy,
+            and is a certified ASME Authorized Inspector, ASNT Level III NDT
+            Professional, and PED Qualified Professional. Frightzone Engineers
+            provides services with excellence and technical integrity across
+            India and the Gulf region.
           </p>
           <ul className="list-disc list-inside text-gray-600">
             <li>20+ years in engineering and consulting</li>
@@ -64,7 +65,6 @@ const AboutFounder = () => {
           </ul>
         </div>
       </motion.div>
- 
     </motion.section>
   );
 };

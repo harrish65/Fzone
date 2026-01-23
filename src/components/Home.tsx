@@ -1,7 +1,6 @@
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
-  
 
 const features = [
   {

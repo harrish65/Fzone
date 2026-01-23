@@ -8,7 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
 
-const serviceGroups = [  
+const serviceGroups = [
   {
     icon: <Settings className="w-6 h-6 md:w-8 md:h-8" />,
     title: "Design & Engineering",
