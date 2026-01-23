@@ -1,14 +1,29 @@
 import { ShieldCheck, FileCheck2, Layers } from "lucide-react";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 
 const About = () => {
   return (
-    <section className="bg-gray-300 py-12 px-4 md:px-8 lg:px-24" id="about">
+    <motion.section
+      className="bg-gray-300 py-12 px-4 md:px-8 lg:px-24"
+      id="about"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
+    >
       <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
         About Us
       </h2>
 
       <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
-        <article className="p-6 bg-blue-50 border border-blue-100 rounded-lg shadow-sm">
+        <motion.article
+          className="p-6 bg-blue-50 border border-blue-100 rounded-lg shadow-sm"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <div className="flex items-center gap-3 mb-3">
             <Layers className="w-6 h-6 text-blue-700" />
             <h3 className="text-lg font-semibold text-blue-800">Who we are</h3>
@@ -17,9 +32,15 @@ const About = () => {
             A focused engineering consultancy delivering compliant, reliable
             design and inspection services.
           </p>
-        </article>
+        </motion.article>
 
-        <article className="p-6 bg-white border border-gray-100 rounded-lg shadow-sm">
+        <motion.article
+          className="p-6 bg-white border border-gray-100 rounded-lg shadow-sm"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <div className="flex items-center gap-3 mb-3">
             <ShieldCheck className="w-6 h-6 text-blue-700" />
             <h3 className="text-lg font-semibold text-blue-800">Expertise</h3>
@@ -28,9 +49,15 @@ const About = () => {
             Specialized in Pressure Vessels, Heat Exchangers and ASME/ISO audits
             for industrial projects.
           </p>
-        </article>
+        </motion.article>
 
-        <article className="p-6 bg-blue-50 border border-blue-100 rounded-lg shadow-sm">
+        <motion.article
+          className="p-6 bg-blue-50 border border-blue-100 rounded-lg shadow-sm"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <div className="flex items-center gap-3 mb-3">
             <FileCheck2 className="w-6 h-6 text-blue-700" />
             <h3 className="text-lg font-semibold text-blue-800">Our process</h3>
@@ -39,11 +66,17 @@ const About = () => {
             Plan → Execute → Verify. Fast, auditable workflows aligned to
             industry codes.
           </p>
-        </article>
+        </motion.article>
       </div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-        <div className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4">
+        <motion.div
+          className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <ShieldCheck className="w-7 h-7 text-blue-700 flex-shrink-0" />
           <div>
             <h4 className="font-semibold text-blue-800">Confidentiality</h4>
@@ -51,9 +84,15 @@ const About = () => {
               We protect client data and project details throughout engagement.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4">
+        <motion.div
+          className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <FileCheck2 className="w-7 h-7 text-blue-700 flex-shrink-0" />
           <div>
             <h4 className="font-semibold text-blue-800">Audit-ready</h4>
@@ -62,9 +101,9 @@ const About = () => {
               verification.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

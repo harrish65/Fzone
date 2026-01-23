@@ -6,8 +6,9 @@ import {
   Check,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 
-const serviceGroups = [
+const serviceGroups = [  
   {
     icon: <Settings className="w-6 h-6 md:w-8 md:h-8" />,
     title: "Design & Engineering",
@@ -52,7 +53,7 @@ const serviceGroups = [
     icon: <Settings className="w-6 h-6 md:w-8 md:h-8" />,
     title: "Welding & NDE Services",
     description:
-      "Welding expertise and Non-Destructive Examination (NDE) services for quality assurance. Al ready uncovered Non Destructive Examination ",
+      "Welding expertise and Non-Destructive Examination (NDE) services for quality assurance. Already uncovered Non Destructive Examination ",
     items: [
       "NDE Level II training and qualifications",
       "Assistance for NDE Level III qualifications",
@@ -76,10 +77,10 @@ const Services = () => {
     <motion.section
       id="services"
       className="flex flex-col items-center justify-center text-center px-4 py-8 bg-blue-200"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
     >
       <section className="max-w-6xl mx-auto py-12 px-4 ">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
@@ -89,11 +90,15 @@ const Services = () => {
           {serviceGroups.map((group, idx) => {
             // const isLast = idx === serviceGroups.length - 1;
             return (
-              <div
+              <motion.div
                 key={idx}
                 className={`bg-white rounded-lg shadow p-6 flex flex-col items-start w-full group transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-white cursor-pointer 
               ${idx === 4 ? "md:col-span-2" : ""}
                 `}
+                initial="hidden"
+                animate="visible"
+                variants={zoomInVariants}
+                viewport={{ once: true }}
               >
                 <div className="flex flex-row items-center gap-2 mb-2 w-full">
                   <div className="text-blue-700 group-hover:text-blue-900 transition-colors duration-300">
@@ -114,7 +119,7 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             );
           })}
         </div>

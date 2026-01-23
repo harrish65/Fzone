@@ -1,4 +1,7 @@
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
+  
 
 const features = [
   {
@@ -22,9 +25,13 @@ const features = [
 
 const Home = () => {
   return (
-    <section
+    <motion.section
       id="home"
       className="flex flex-col items-center justify-center min-h-[60vh] bg-blue-200 px-4 py-16"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
     >
       <div className="max-w-6xl w-full mx-auto">
         <div className="text-center mb-8">
@@ -49,9 +56,13 @@ const Home = () => {
             const variant = hoverVariants[idx % hoverVariants.length];
 
             return (
-              <div
+              <motion.div
                 key={f.title}
                 className={`w-full bg-transparent border border-gray-100 rounded-lg p-6 shadow-sm transition transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg ${variant}`}
+                initial="hidden"
+                animate="visible"
+                variants={zoomInVariants}
+                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <Check className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
@@ -62,7 +73,7 @@ const Home = () => {
                     <p className="text-sm text-gray-600">{f.desc}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -76,7 +87,7 @@ const Home = () => {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

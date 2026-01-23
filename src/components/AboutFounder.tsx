@@ -1,4 +1,6 @@
 // import { ShieldCheck, FileCheck2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 import directorImg from "../assets/Director.jpg"; // Update with your actual image path
 
 // type CommitmentBlockProps = {
@@ -19,12 +21,24 @@ import directorImg from "../assets/Director.jpg"; // Update with your actual ima
 
 const AboutFounder = () => {
   return (
-    <section className="max-w-5xl mx-auto py-12 px-4">
+    <motion.section
+      className="max-w-5xl mx-auto py-12 px-4"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
+    >
       {/* Director Section */}
       <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
         Meet Our Director
       </h2>
-      <div className="flex flex-col  items-center  gap-10 mb-5">
+      <motion.div
+        className="flex flex-col  items-center  gap-10 mb-5"
+        initial="hidden"
+        animate="visible"
+        variants={zoomInVariants}
+        viewport={{ once: true }}
+      >
         <img
           src={directorImg}
           alt="Director"
@@ -49,9 +63,9 @@ const AboutFounder = () => {
             {/* Add more achievements as needed */}
           </ul>
         </div>
-      </div>
+      </motion.div>
  
-    </section>
+    </motion.section>
   );
 };
 

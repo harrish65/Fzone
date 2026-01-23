@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 import GeneralElectric from "../assets/General_Electric.jpg";
 import ProcessEng from "../assets/ProcessEng.jpeg";
 import QualityInternational from "../assets/quality_international.jpg";
@@ -50,24 +51,31 @@ const PartnersSlider = () => {
     <motion.section
       id="partners"
       className="flex flex-col items-center justify-center py-12 bg-yellow-100"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
     >
       <h2 className="text-xl md:text-3xl font-semibold text-blue-900 mb-8 tracking-wide text-center">
         Our Esteemed Partners
       </h2>
       <div className="flex flex-row gap-12 md:gap-20 items-center justify-center w-full">
         {getVisiblePartners().map((partner, idx) => (
-          <div key={idx} className="flex flex-col items-center">
+          <motion.div
+            key={idx}
+            className="flex flex-col items-center"
+            initial="hidden"
+            animate="visible"
+            variants={zoomInVariants}
+            viewport={{ once: true }}
+          >
             <img
               src={partner.logo}
               alt={partner.name}
               className="h-16 md:h-20 w-full object-contain mb-2"
               style={{ maxWidth: "140px" }}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className="mt-4 flex gap-2">

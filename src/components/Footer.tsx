@@ -1,12 +1,26 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-900 text-white py-8 mt-2">
+    <motion.footer
+      className="w-full bg-gray-900 text-white py-8 mt-2"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
+    >
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Left: Contact details (moved from Contact left section) */}
 
-        <div className="flex flex-col items-start">
+        <motion.div
+          className="flex flex-col items-start"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <h4 className="text-lg font-semibold">FZONE</h4>
           <p className="text-sm mt-2 mb-4">
             Design consultancy & inspection services specializing in ASME/ISO
@@ -20,10 +34,16 @@ const Footer = () => {
               Terms
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Middle: Quick links */}
-        <div className="flex flex-col items-start">
+        <motion.div
+          className="flex flex-col items-start"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <h4 className="text-lg font-semibold">Quick Links</h4>
           <nav className="mt-2 flex flex-col gap-2 text-sm">
             <a href="#home" className="hover:underline">
@@ -39,10 +59,16 @@ const Footer = () => {
               Contact
             </a>
           </nav>
-        </div>
+        </motion.div>
 
         {/* Right: About / Social */}
-        <div className="space-y-3">
+        <motion.div
+          className="space-y-3"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <h4 className="text-lg font-semibold">Contact</h4>
           <div className="flex items-center gap-3">
             <span className="bg-orange-400 rounded-full p-2">
@@ -75,13 +101,13 @@ const Footer = () => {
               Chennai - 600044
             </address>
           </div>
-        </div>
+        </motion.div>
 
         <div className="md:col-span-3 mt-4 border-t border-gray-200 pt-4 text-center text-sm text-blue-100">
           &copy; {new Date().getFullYear()} FZONE. All rights reserved.
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

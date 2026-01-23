@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, Download } from "lucide-react";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 import brochurePdf from "../assets/FZONE ENGINEERS (2) (1).pdf";
 
 const navLinks = [
@@ -48,7 +50,13 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+    <motion.header
+      className="w-full bg-white shadow-md fixed top-0 left-0 z-50"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
+    >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo/Title */}
         <div className="text-xl font-bold text-blue-700">FZONE</div>
@@ -110,7 +118,13 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="md:hidden bg-yellow-100 border-t shadow-lg">
+        <motion.nav
+          className="md:hidden bg-yellow-100 border-t shadow-lg"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <div className="flex flex-col items-center px-4 py-2 gap-4">
             {navLinks.map((link) => {
               if (link.download) {
@@ -136,9 +150,9 @@ const Header = () => {
               );
             })}
           </div>
-        </nav>
+        </motion.nav>
       )}
-    </header>
+    </motion.header>
   );
 };
 

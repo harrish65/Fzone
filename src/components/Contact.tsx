@@ -1,16 +1,27 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { slideUpVariants, zoomInVariants } from "./animation";
 
 const Contact = () => {
   return (
-    <div
+    <motion.div
       id="contact"
       className="bg-blue-900 text-white text-center p-4 md:p-8"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
     >
       <h2 className="text-4xl md:text-6xl font-semibold mb-6">Contact Us</h2>
       <div className="flex flex-col lg:flex-row gap-8 w-full min-h-[60vh]">
         {/* Contact Details */}
-        <div className="flex flex-col justify-center gap-6 text-white p-4 md:p-8 rounded-lg lg:w-1/2 w-full min-h-[60vh]">
+        <motion.div
+          className="flex flex-col justify-center gap-6 text-white p-4 md:p-8 rounded-lg lg:w-1/2 w-full min-h-[60vh]"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
           <div className="flex lg:flex-row flex-col  items-center gap-4 mb-4">
             <span className="bg-orange-400 rounded-full p-2">
               <Mail className="w-6 h-6 text-white" />
@@ -42,16 +53,16 @@ const Contact = () => {
               Chennai - 600044.
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* Contact Form */}
-        <div className="lg:w-1/2 w-full text-white bg-blue-900 p-4 md:p-8 rounded-lg flex items-center">
-          <motion.section
-            className="flex flex-col items-center justify-center w-full text-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+        <motion.div
+          className="lg:w-1/2 w-full text-white bg-blue-900 p-4 md:p-8 rounded-lg flex items-center"
+          initial="hidden"
+          animate="visible"
+          variants={zoomInVariants}
+          viewport={{ once: true }}
+        >
+          <section className="flex flex-col items-center justify-center w-full text-center">
             <h2 className="text-3xl text-yellow-100 md:text-4xl font-semibold mb-6">
               Get in Touch
             </h2>
@@ -85,8 +96,8 @@ const Contact = () => {
                 Send Message
               </button>
             </form>
-          </motion.section>
-        </div>
+          </section>
+        </motion.div>
       </div>
       {/* Download Brochure Button */}
       {/* <div className="mt-8 flex justify-center">
@@ -98,7 +109,7 @@ const Contact = () => {
           Download Brochure
         </a>
       </div> */}
-    </div>
+    </motion.div>
   );
 };
 

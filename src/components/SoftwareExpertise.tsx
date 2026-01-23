@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 import AutoCADImg from "../assets/AutoCADImg.png";
 import PVEliteImg from "../assets/PVLiteImg.png";
 const softwareList = [
@@ -17,15 +19,25 @@ const softwareList = [
 
 const SoftwareExpertise = () => {
   return (
-    <section className="py-6  md:px-8 lg:px-24 bg-white">
+    <motion.section
+      className="py-6  md:px-8 lg:px-24 bg-white"
+      initial="hidden"
+      animate="visible"
+      variants={slideUpVariants}
+      viewport={{ once: true }}
+    >
       <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">
         Software Expertise
       </h2>
       <div className="grid gap-x-6 md:grid-cols-2 gap-y-8 min-h-[20vh] ">
         {softwareList.map((software) => (
-          <div
+          <motion.div
             key={software.name}
             className="rounded-lg shadow-lg p-6 bg-gray-50 border border-gray-200 hover:shadow-xl transition-shadow max-h-[400px] flex flex-col md:items-start items-center"
+            initial="hidden"
+            animate="visible"
+            variants={zoomInVariants}
+            viewport={{ once: true }}
           >
             <img
               src={software.img}
@@ -35,10 +47,10 @@ const SoftwareExpertise = () => {
             <p className="text-gray-700 leading-relaxed">
               {software.description}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
