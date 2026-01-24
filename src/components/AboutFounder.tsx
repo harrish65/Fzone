@@ -46,10 +46,10 @@ const AboutFounder = () => {
         />
         <div className="flex-1">
           <h2 className="text-2xl md:text-3xl font-bold mb-1 text-center">
-            Mr.Kannan Ramasamy
+            Mr Kannan Ramasamy
           </h2>
           <p className="mb-2 text-gray-700">
-            <span className="font-bold">Mr.Kannan Ramasamy</span> has been the
+            <span className="font-bold">Mr Kannan Ramasamy</span> has been the
             Director of Frightzone Engineers since 2012. He holds a Bachelor's
             in Mechanical Engineering and a Master's in Industrial Metallurgy,
             and is a certified ASME Authorized Inspector, ASNT Level III NDT

@@ -1,5 +1,5 @@
 // animation.ts
-import { Variants } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export const slideUpVariants: Variants = {
   hidden: { y: 50, opacity: 0 }, // Start slightly below with no opacity

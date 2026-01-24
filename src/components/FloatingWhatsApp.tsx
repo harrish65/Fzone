@@ -1,7 +1,7 @@
 import whatsappImg from "../assets/whatsapp-share-icon.svg";
 
 // Replace with your WhatsApp number in international format (no + or dashes)
-const WHATSAPP_LINK = "https://wa.me/1234567890";
+const WHATSAPP_LINK = "https://wa.me/919361309259";
 
 const FloatingWhatsApp = () => {
   return (

@@ -1,6 +1,11 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
+import emailImg from "../assets/emailIcon.png";
+import whatsappImg from "../assets/whatsapp.png";
+
+// Replace with your WhatsApp number in international format (no + or dashes)
+const WHATSAPP_LINK = "https://wa.me/919361309259";
 
 const Footer = () => {
   return (
@@ -63,44 +68,67 @@ const Footer = () => {
 
         {/* Right: About / Social */}
         <motion.div
-          className="space-y-3"
+          className="space-y-1"
           initial="hidden"
           animate="visible"
           variants={zoomInVariants}
           viewport={{ once: true }}
         >
-          <h4 className="text-lg font-semibold">Contact</h4>
+          <h4 className="text-lg font-semibold">Contact Us</h4>
           <div className="flex items-center gap-3">
-            <span className="bg-orange-400 rounded-full p-2">
-              <Mail className="w-5 h-5 text-white" />
+          <a href="mailto:info@frightzoneengineers.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline">
+            <span className="p-2">
+              <img src={emailImg} alt="Email" className="w-5 h-5" />
             </span>
-            <a
-              href="mailto:frightzoneengineers@gmail.com"
-              className="underline"
-            >
-              frightzoneengineers@gmail.com
+           
+          </a>
+     
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+              <img src={whatsappImg} alt="WhatsApp" className="w-6 h-6" />
             </a>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="bg-orange-400 rounded-full p-2">
-              <Phone className="w-5 h-5 text-white" />
-            </span>
-            <span>91 9361309259, 8807343626</span>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="bg-orange-400 rounded-full p-2 mt-1">
-              <MapPin className="w-5 h-5 text-white" />
-            </span>
-            <address className="not-italic text-sm">
-              Frightzoneengineers
-              <br />
-              5/9 Srinivasalu Naidu street,
-              <br />
-              Radha Nagar Chrompet,
-              <br />
-              Chennai - 600044
-            </address>
-          </div>
+            </div>
+        
+          <div className="flex gap-3">
+          <div className="flex flex-col items-start gap-3">
+            <motion.div
+              className="p-2 mt-1"
+              animate={{ y: [0, -2, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <MapPin className="w-5 h-5 text-red-700" />
+            </motion.div>
+            <div className="flex flex-col text-xs">
+              <span>Frightzoneengineers</span>
+              <span>5/9 Srinivasalu Naidu street,</span>
+              <span>Radha Nagar Chrompet,</span>
+              <span>Chennai - 600044</span>
+            </div>
+            </div>
+          <div className="flex flex-col items-start gap-3">
+            <motion.div
+              className="p-2 mt-1"
+              animate={{ y: [0, -2, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <MapPin className="w-5 h-5 text-red-700" />
+            </motion.div>
+            
+            <div className="flex flex-col text-xs">
+              <span>Frightzoneengineers</span>
+              <span>Sheik Rashid Bin Saeed </span>
+              <span>Al Maktoum St,</span>
+              <span>Ajman, Dubai, UAE.</span>
+            </div>
+            </div>
+            </div>
         </motion.div>
 
         <div className="md:col-span-3 mt-4 border-t border-gray-200 pt-4 text-center text-sm text-blue-100">

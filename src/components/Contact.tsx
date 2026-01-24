@@ -1,8 +1,46 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { slideUpVariants, zoomInVariants } from "./animation";
-
+import emailjs from "@emailjs/browser";
+import type { FormEvent } from "react";
 const Contact = () => {
+  const mapSrc =
+    "https://www.google.com/maps/place/Ajman+Free+Zone/@25.4191013,55.452662,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f5784a7c97153:0x2f7b6f7ff376bcb3!8m2!3d25.4191013!4d55.452662!16s%2Fg%2F11xbn0r4h?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D";
+  const mapSrc1 =
+    "https://www.google.com/maps/search/+Srinivasalu+Naidu+street,+Radha+Nagar+Chrompet,+Chennai+-+600044./@12.955247,80.1373704,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D";
+  // 1. We encode your specific address to force the Red Pin 📍
+  // 2. We add "&output=embed" to make it work inside your website
+  // Map functionality removed. Coordinates and API loading were here.
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email.value)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        "your_actual_service_id",
+        "your_actual_template_id",
+        form,
+        "your_actual_public_key"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send message.");
+        }
+      );
+  };
+
   return (
     <motion.div
       id="contact"
@@ -13,6 +51,7 @@ const Contact = () => {
       viewport={{ once: true }}
     >
       <h2 className="text-4xl md:text-6xl font-semibold mb-6">Contact Us</h2>
+
       <div className="flex flex-col lg:flex-row gap-8 w-full min-h-[60vh]">
         {/* Contact Details */}
         <motion.div
@@ -22,28 +61,41 @@ const Contact = () => {
           variants={zoomInVariants}
           viewport={{ once: true }}
         >
-          <div className="flex lg:flex-row flex-col  items-center gap-4 mb-4">
+          <div className="flex lg:flex-row flex-col items-center gap-4 mb-4">
             <span className="bg-orange-400 rounded-full p-2">
               <Mail className="w-6 h-6 text-white" />
             </span>
             <a
-              href="mailto:frightzoneengineers@gmail.com"
-              className="underline text-lg break-all"
+              href="mailto:info@frightzoneengineers.com"
+              className="no-underline text-lg break-all hover:text-orange-300 transition-colors"
             >
-              frightzoneengineers@gmail.com
+              info@frightzoneengineers.com
             </a>
           </div>
           <div className="flex lg:flex-row flex-col items-center gap-4 mb-4">
             <span className="bg-orange-400 rounded-full p-2">
               <Phone className="w-6 h-6 text-white" />
             </span>
-            <span className="text-lg">91 9361309259, 8807343626</span>
+            <span className="text-lg">9361309259, 8807343626</span>
           </div>
-          <div className="flex lg:flex-row flex-col items-center gap-4 mb-4">
-            <span className="bg-orange-400 rounded-full p-2">
+          <a
+            href={mapSrc1}
+            target="_blank"
+            className="flex lg:flex-row flex-col items-center gap-4 mb-4"
+          >
+            <motion.div
+              className="bg-orange-400 rounded-full p-2"
+              // 2. Add the bounce animation
+              animate={{ y: [0, -20, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
               <MapPin className="w-6 h-6 text-white" />
-            </span>
-            <div className="text-lg lg:text-left text-center">
+            </motion.div>
+            <div className="text-lg lg:text-left text-center hover:text-orange-300 transition-colors">
               Frightzoneengineers
               <br />
               5/9 Srinivasalu Naidu street,
@@ -52,8 +104,36 @@ const Contact = () => {
               <br />
               Chennai - 600044.
             </div>
-          </div>
+          </a>
+          <a
+            href={mapSrc}
+            target="_blank"
+            className="flex lg:flex-row flex-col items-center gap-4 mb-4 hover:text-orange-300 transition-colors"
+          >
+            <motion.div
+              className="bg-orange-400 rounded-full p-2"
+              // 2. Add the bounce animation
+              animate={{ y: [0, -20, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <MapPin className="w-6 h-6 text-white" />
+            </motion.div>
+            <div className="text-lg lg:text-left text-center">
+              Frightzoneengineers
+              <br />
+              AJMAN FREEZONE
+              <br />
+              Sheik Rashid Bin Saeed Al Maktoum St,
+              <br />
+              Ajman, Dubai, UAE.
+            </div>
+          </a>
         </motion.div>
+
         {/* Contact Form */}
         <motion.div
           className="lg:w-1/2 w-full text-white bg-blue-900 p-4 md:p-8 rounded-lg flex items-center"
@@ -67,26 +147,29 @@ const Contact = () => {
               Get in Touch
             </h2>
 
-            <form className="w-full max-w-md mx-auto flex flex-col gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="w-full max-w-md mx-auto flex flex-col gap-4"
+            >
               <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-700"
+                className="border border-gray-300 text-black rounded px-4 py-2 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-orange-400"
                 required
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
-                className="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-700"
+                className="border border-gray-300 text-black rounded px-4 py-2 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-orange-400"
                 required
               />
               <textarea
                 name="message"
                 rows={4}
                 placeholder="Your Message"
-                className="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-700"
+                className="border border-gray-300 text-black rounded px-4 py-2 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-orange-400"
                 required
               />
               <button
@@ -99,16 +182,8 @@ const Contact = () => {
           </section>
         </motion.div>
       </div>
-      {/* Download Brochure Button */}
-      {/* <div className="mt-8 flex justify-center">
-        <a
-          href="/brochure.pdf"
-          download
-          className="bg-orange-400 text-white px-8 py-3 rounded-lg shadow hover:bg-blue-800 transition-colors font-semibold text-xl"
-        >
-          Download Brochure
-        </a>
-      </div> */}
+
+      {/* Map removed — keep layout clean. */}
     </motion.div>
   );
 };
