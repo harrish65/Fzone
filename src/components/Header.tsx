@@ -5,8 +5,8 @@ import brochurePdf from "../assets/FZONE ENGINEERS (2) (1).pdf";
 // import heroBg from "../assets/herobg.png";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
+  { name: "Home", href: "#home"},
+  { name: "About", href: "#about"},
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
   { name: "Download Brochure", href: brochurePdf, download: true },
