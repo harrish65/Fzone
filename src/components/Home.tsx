@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import heroBg from "../assets/herobg.png"
 import { slideUpVariants, zoomInVariants } from "./animation";
 
 const features = [
@@ -24,52 +25,47 @@ const features = [
 
 const Home = () => {
   return (
-    <motion.section
+    <div
       id="home"
-      className="flex flex-col items-center justify-center min-h-[60vh] bg-blue-200 px-4 py-16"
-      initial="hidden"
-      animate="visible"
-      variants={slideUpVariants}
-      viewport={{ once: true }}
-    >
-      <div className="max-w-6xl w-full mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+      className="flex flex-col items-center justify-center min-h-[60vh]  px-4 py-20 lg:background-fixed bg-cover lg:bg-top bg-center bg-no-repeat"
+    style={{backgroundImage:`url(${heroBg})`}} >
+      <div className="max-w-6xl w-full mx-auto"
+      
+        >
+        <motion.div className="text-center mb-8"
+          initial="hidden"
+        animate="visible"
+        variants={zoomInVariants}>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">
             Certified Engineering & Inspection Experts
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 mx-auto max-w-3xl">
+          <p className="text-lg md:text-xl text-gray-300 mx-auto max-w-3xl">
             Frightzone Engineers deliver focused design, inspection and audit
             services that meet strict industry standards with reliable,
             auditable results.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, idx) => {
-            const hoverVariants = [
-              "hover:bg-gradient-to-r hover:from-blue-50 hover:to-white hover:border-blue-200",
-              "hover:bg-gradient-to-r hover:from-green-50 hover:to-white hover:border-green-200",
-              "hover:bg-gradient-to-r hover:from-yellow-50 hover:to-white hover:border-yellow-200",
-              "hover:bg-gradient-to-r hover:from-purple-50 hover:to-white hover:border-purple-200",
-            ];
-            const variant = hoverVariants[idx % hoverVariants.length];
+            const variant = idx % 2 === 0 ? "bg-blue-600" : "bg-blue-800";
 
             return (
               <motion.div
                 key={f.title}
-                className={`w-full bg-transparent border border-gray-100 rounded-lg p-6 shadow-sm transition transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg ${variant}`}
+                className={`w-full bg-transparent border hover:bg-black/60 hover:border-0 border-gray-100 rounded-lg p-6 shadow-sm transition transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg ${variant}`}
                 initial="hidden"
-                animate="visible"
-                variants={zoomInVariants}
-                viewport={{ once: true }}
+                whileInView="visible"
+                variants={slideUpVariants}
+                
               >
                 <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <Check className="w-6 h-6 text-white font-extrabold flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-800">
+                    <h3 className="text-lg font-semibold text-gray-200">
                       {f.title}
                     </h3>
-                    <p className="text-sm text-gray-600">{f.desc}</p>
+                    <p className="text-sm text-gray-300">{f.desc}</p>
                   </div>
                 </div>
               </motion.div>
@@ -77,16 +73,20 @@ const Home = () => {
           })}
         </div>
 
-        <div className="text-center mt-8">
+        <motion.div
+          className={"text-center mt-8"}
+          initial="hidden"
+          whileInView="visible"
+          variants={zoomInVariants}>
           <a
             href="#services"
-            className="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg shadow transition-colors"
+            className="inline-block bg-transparent hover:border-0 hover:bg-black/90 text-white font-semibold py-2 px-8 rounded-lg shadow transition-colors border border-white"
           >
             Learn More
           </a>
-        </div>
+        </motion.div>
       </div>
-    </motion.section>
+    </div>
   );
 };
 

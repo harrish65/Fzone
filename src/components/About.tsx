@@ -1,68 +1,79 @@
-import { ShieldCheck, FileCheck2, Layers } from "lucide-react";
+import {
+  ShieldCheck,
+  FileCheck2,
+  MessageCircleQuestionMark,
+} from "lucide-react";
 import { motion } from "framer-motion";
-import { slideUpVariants, zoomInVariants } from "./animation";
+import { zoomInVariants } from "./animation";
+// import backgroundImage from "../assets/about-bg.png";
 
 const About = () => {
   return (
     <motion.section
-      className="bg-gray-300 py-12 px-4 md:px-8 lg:px-24"
+      className={
+        "py-12 px-4 md:px-8 lg:px-24 background-cover bg-center bg-no-repeat bg-black/90"
+      }
       id="about"
-      initial="hidden"
-      animate="visible"
-      variants={slideUpVariants}
-      viewport={{ once: true }}
     >
-      <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
+      <motion.h2
+        className="text-3xl font-bold text-gray-100 mb-8 text-center"
+        initial="hidden"
+        whileInView="visible"
+        variants={zoomInVariants}
+      >
         About Us
-      </h2>
+      </motion.h2>
 
       <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
         <motion.article
-          className="p-6 bg-blue-50 border border-blue-100 rounded-lg shadow-sm"
+          className="p-6 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg shadow-sm group"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           variants={zoomInVariants}
-          viewport={{ once: true }}
         >
-          <div className="flex items-center gap-3 mb-3">
-            <Layers className="w-6 h-6 text-blue-700" />
-            <h3 className="text-lg font-semibold text-blue-800">Who we are</h3>
+          <div className="flex items-center gap-3 mb-3 ">
+            <MessageCircleQuestionMark className="w-6 h-6 text-gray-100 group-hover:text-green-800" />
+            <h3 className="text-lg font-bold text-gray-200 group-hover:text-green-800">
+              Who we are
+            </h3>
           </div>
-          <p className="text-gray-700">
+          <p className="text-gray-300  group-hover:text-green-700">
             A focused engineering consultancy delivering compliant, reliable
             design and inspection services.
           </p>
         </motion.article>
 
         <motion.article
-          className="p-6 bg-white border border-gray-100 rounded-lg shadow-sm"
+          className="p-6 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg shadow-sm group"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           variants={zoomInVariants}
-          viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-3">
-            <ShieldCheck className="w-6 h-6 text-blue-700" />
-            <h3 className="text-lg font-semibold text-blue-800">Expertise</h3>
+            <ShieldCheck className="w-6 h-6 text-gray-100 group-hover:text-green-800" />
+            <h3 className="text-lg font-bold text-gray-200 group-hover:text-green-800">
+              Expertise
+            </h3>
           </div>
-          <p className="text-gray-700">
+          <p className="text-gray-300 group-hover:text-green-700">
             Specialized in Pressure Vessels, Heat Exchangers and ASME/ISO audits
             for industrial projects.
           </p>
         </motion.article>
 
         <motion.article
-          className="p-6 bg-blue-50 border border-blue-100 rounded-lg shadow-sm"
+          className="p-6 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg shadow-sm group"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           variants={zoomInVariants}
-          viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-3">
-            <FileCheck2 className="w-6 h-6 text-blue-700" />
-            <h3 className="text-lg font-semibold text-blue-800">Our process</h3>
+            <FileCheck2 className="w-6 h-6 text-gray-100 group-hover:text-green-800" />
+            <h3 className="text-lg font-bold text-gray-200 group-hover:text-green-800">
+              Our Process
+            </h3>
           </div>
-          <p className="text-gray-700">
+          <p className="text-gray-300 group-hover:text-green-700">
             Plan → Execute → Verify. Fast, auditable workflows aligned to
             industry codes.
           </p>
@@ -71,32 +82,34 @@ const About = () => {
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
         <motion.div
-          className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4"
+          className="flex items-start gap-3 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg p-4 group"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           variants={zoomInVariants}
-          viewport={{ once: true }}
         >
-          <ShieldCheck className="w-7 h-7 text-blue-700 flex-shrink-0" />
+          <ShieldCheck className="w-7 h-7 text-gray-100 group-hover:text-green-800 flex-shrink-0" />
           <div>
-            <h4 className="font-semibold text-blue-800">Confidentiality</h4>
-            <p className="text-sm text-gray-600">
+            <h4 className="font-bold text-gray-200 group-hover:text-green-800">
+              Confidentiality
+            </h4>
+            <p className="text-sm text-gray-300 group-hover:text-green-700">
               We protect client data and project details throughout engagement.
             </p>
           </div>
         </motion.div>
 
         <motion.div
-          className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4"
+          className="flex items-start gap-3 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg p-4 group"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           variants={zoomInVariants}
-          viewport={{ once: true }}
         >
-          <FileCheck2 className="w-7 h-7 text-blue-700 flex-shrink-0" />
+          <FileCheck2 className="w-7 h-7 text-gray-100 group-hover:text-green-800 flex-shrink-0" />
           <div>
-            <h4 className="font-semibold text-blue-800">Audit-ready</h4>
-            <p className="text-sm text-gray-600">
+            <h4 className="font-bold text-gray-200 group-hover:text-green-800">
+              Audit-ready
+            </h4>
+            <p className="text-sm text-gray-300 group-hover:text-green-700">
               Deliverables and reports follow ASME/ISO standards for easy
               verification.
             </p>

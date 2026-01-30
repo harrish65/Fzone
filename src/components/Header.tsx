@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, Download } from "lucide-react";
 import { motion } from "framer-motion";
-import { slideUpVariants, zoomInVariants } from "./animation";
 import brochurePdf from "../assets/FZONE ENGINEERS (2) (1).pdf";
+import heroBg from "../assets/herobg.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -51,15 +51,12 @@ const Header = () => {
 
   return (
     <motion.header
-      className="w-full bg-white shadow-md fixed top-0 left-0 z-50"
-      initial="hidden"
-      animate="visible"
-      variants={slideUpVariants}
-      viewport={{ once: true }}
+      className={`w-full  shadow-md fixed top-0 left-0 z-50  backdrop-blur-sm`}
+      style={{ backgroundImage: `URL(${heroBg})` }}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo/Title */}
-        <div className="text-xl font-bold text-blue-700">FZONE</div>
+        <div className="text-xl font-bold text-gray-100">FZONE</div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8">
@@ -70,7 +67,7 @@ const Header = () => {
                   key={link.name}
                   href={link.href}
                   download
-                  className="bg-blue-900 text-white px-4 rounded pt-1 pb-2 hover:bg-blue-500 transition-colors font-semibold text-base"
+                  className="bg-transparent text-white px-4 rounded pt-1 pb-2 hover:bg-black/70 hover:border-0 border border-white transition-colors font-semibold text-base"
                 >
                   {link.name}
                 </a>
@@ -86,8 +83,8 @@ const Header = () => {
                 href={link.href}
                 className={`font-medium transition-colors ${
                   isActive
-                    ? "text-blue-700"
-                    : "text-gray-700 hover:text-blue-700"
+                    ? "text-gray-300 underline underline-offset-8"
+                    : "text-gray-50 hover:text-white"
                 }`}
               >
                 {link.name}
@@ -103,7 +100,7 @@ const Header = () => {
             onClick={() => setMenuOpen((open) => !open)}
             aria-label="Toggle menu"
           >
-            <Menu className="w-6 h-6 text-blue-700" />
+            <Menu className="w-6 h-6 text-gray-200" />
           </button>
           <a
             href={navLinks.find((l) => l.download)?.href}
@@ -111,7 +108,7 @@ const Header = () => {
             className="flex items-center p-2"
             aria-label="Download Brochure"
           >
-            <Download className="w-6 h-6 text-blue-700" />
+            <Download className="w-6 h-6 text-gray-200" />
           </a>
         </div>
       </div>
@@ -120,10 +117,7 @@ const Header = () => {
       {menuOpen && (
         <motion.nav
           className="md:hidden bg-yellow-100 border-t shadow-lg"
-          initial="hidden"
-          animate="visible"
-          variants={zoomInVariants}
-          viewport={{ once: true }}
+          
         >
           <div className="flex flex-col items-center px-4 py-2 gap-4">
             {navLinks.map((link) => {

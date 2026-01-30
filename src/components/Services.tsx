@@ -5,6 +5,9 @@ import {
   Globe,
   Check,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import { slideUpVariants } from "./animation";
+import { zoomInVariants } from "./animation";
 
 const serviceGroups = [
   {
@@ -77,10 +80,18 @@ const Services = () => {
       className="flex flex-col items-center justify-center text-center px-4 py-8 bg-blue-200"
     >
       <section className="max-w-6xl mx-auto py-12 px-4 ">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          variants={zoomInVariants}
+          className="text-3xl font-bold text-center text-gray-900 mb-8">
           Our Services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        </motion.h2>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={slideUpVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {serviceGroups.map((group, idx) => {
             // const isLast = idx === serviceGroups.length - 1;
             return (
@@ -112,7 +123,7 @@ const Services = () => {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </section>
     </section>
   );

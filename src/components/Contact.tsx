@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { slideUpVariants, zoomInVariants } from "./animation";
+import { slideUpVariants } from "./animation";
 import emailjs from "@emailjs/browser";
 import type { FormEvent } from "react";
 const Contact = () => {
@@ -45,23 +45,27 @@ const Contact = () => {
     <motion.div
       id="contact"
       className="bg-blue-900 text-white text-center p-4 md:p-8"
-      initial="hidden"
-      animate="visible"
-      variants={slideUpVariants}
-      viewport={{ once: true }}
     >
-      <h2 className="text-4xl md:text-6xl font-semibold mb-6">Contact Us</h2>
+      <motion.h2 className="text-4xl md:text-6xl font-semibold mb-6"
+        initial="hidden"
+        whileInView="visible"
+        variants={slideUpVariants}
+      >
+        Contact Us
+      </motion.h2>
 
-      <div className="flex flex-col lg:flex-row gap-8 w-full min-h-[60vh]">
+      <div className="flex flex-col lg:flex-row gap-8 w-full min-h-[50vh]">
         {/* Contact Details */}
         <motion.div
-          className="flex flex-col justify-center gap-6 text-white p-4 md:p-8 rounded-lg lg:w-1/2 w-full min-h-[60vh]"
           initial="hidden"
-          animate="visible"
-          variants={zoomInVariants}
-          viewport={{ once: true }}
+          whileInView="visible"
+          variants={slideUpVariants}
+          className="flex flex-col justify-center gap-6 text-white p-4 md:p-8 rounded-lg lg:w-1/2 w-full min-h-[60vh]"
         >
-          <div className="flex lg:flex-row flex-col items-center gap-4 mb-4">
+          <motion.div
+           
+
+            className="flex lg:flex-row flex-col items-center gap-4 mb-4">
             <span className="bg-orange-400 rounded-full p-2">
               <Mail className="w-6 h-6 text-white" />
             </span>
@@ -71,7 +75,7 @@ const Contact = () => {
             >
               info@frightzoneengineers.com
             </a>
-          </div>
+          </motion.div>
           <div className="flex lg:flex-row flex-col items-center gap-4 mb-4">
             <span className="bg-orange-400 rounded-full p-2">
               <Phone className="w-6 h-6 text-white" />
@@ -138,9 +142,9 @@ const Contact = () => {
         <motion.div
           className="lg:w-1/2 w-full text-white bg-blue-900 p-4 md:p-8 rounded-lg flex items-center"
           initial="hidden"
-          animate="visible"
-          variants={zoomInVariants}
-          viewport={{ once: true }}
+          whileInView="visible"
+          variants={slideUpVariants}
+         
         >
           <section className="flex flex-col items-center justify-center w-full text-center">
             <h2 className="text-3xl text-yellow-100 md:text-4xl font-semibold mb-6">
