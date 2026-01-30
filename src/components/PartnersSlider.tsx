@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { slideUpVariants, zoomInVariants } from "./animation";
+import { zoomInVariants } from "./animation";
 import GeneralElectric from "../assets/General_Electric.jpg";
 import ProcessEng from "../assets/ProcessEng.jpeg";
 import QualityInternational from "../assets/quality_international.jpg";
@@ -50,13 +50,9 @@ const PartnersSlider = () => {
   return (
     <motion.section
       id="partners"
-      className="flex flex-col items-center justify-center py-12 bg-yellow-100"
-      initial="hidden"
-      animate="visible"
-      variants={slideUpVariants}
-      viewport={{ once: true }}
+      className="flex  flex-col items-center justify-center my-1  py-12 bg-gray-950"
     >
-      <h2 className="text-xl md:text-3xl font-semibold text-blue-900 mb-8 tracking-wide text-center">
+      <h2 className="text-xl md:text-3xl font-semibold text-gray-100 mb-8 tracking-wide text-center">
         Our Esteemed Partners
       </h2>
       <div className="flex flex-row gap-12 md:gap-20 items-center justify-center w-full">
@@ -83,7 +79,7 @@ const PartnersSlider = () => {
           <span
             key={idx}
             className={`inline-block w-3 h-3 rounded-full ${
-              idx === current ? "bg-blue-700" : "bg-gray-300"
+              idx === current ? "bg-gray-100" : "bg-gray-700"
             }`}
           />
         ))}

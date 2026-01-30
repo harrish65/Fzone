@@ -21,10 +21,10 @@ import directorImg from "../assets/FounderIng.jpg"; // Update with your actual i
 
 const AboutFounder = () => {
   return (
-    <motion.section className="max-w-5xl mx-auto py-12 px-4">
+    <motion.section className="max-w-full mx-auto mb-1 py-12 px-4 bg-gray-900" id="about-founder">
       {/* Director Section */}
       <motion.h2
-        className="text-3xl font-bold text-blue-900 mb-8 text-center"
+        className="text-3xl font-bold text-gray-100 mb-8 text-center"
         initial="hidden"
         whileInView="visible"
         variants={zoomInVariants}
@@ -42,16 +42,16 @@ const AboutFounder = () => {
             variants={zoomInVariants}
           />
           <div className="mt-4 text-center md:text-left w-full">
-            <h3 className="text-lg font-bold text-gray-900">
-              Mr. Kannan Ramasamy
+            <h3 className="text-lg font-bold text-gray-200">
+              Mr.Kannan Ramasamy
             </h3>
-            <p className="text-sm text-gray-700 font-semibold">
-              MTECH (Metallurgy), LLB
+            <p className="text-sm text-gray-300 font-semibold">
+              MTech (Metallurgy), LLB
             </p>
-            <p className="text-sm text-gray-600 mt-2">Engineer & Lawyer</p>
-            <p className="text-sm text-gray-600">Fright Zone Engineers</p>
-            <p className="text-sm text-gray-600">Aandavar Telecom</p>
-            <p className="text-sm text-gray-600">Aandavar Organics</p>
+            <p className="text-sm text-gray-400 mt-2">Engineer & Lawyer</p>
+            <p className="text-sm text-gray-400">Fright Zone Engineers</p>
+            <p className="text-sm text-gray-400">Aandavar Telecom</p>
+            <p className="text-sm text-gray-400">Aandavar Organics</p>
           </div>
         </motion.div>
         <motion.div
@@ -60,8 +60,8 @@ const AboutFounder = () => {
           whileInView="visible"
           variants={slideUpVariants}
         >
-          <p className="mb-4 text-gray-700 leading-relaxed">
-            <span className="font-bold">Mr Kannan Ramasamy</span> has been the
+          <p className="mb-4 text-gray-300 leading-relaxed">
+            <span className="font-bold">Mr.Kannan Ramasamy</span> has been the
             Director of Frightzone Engineers since 2012. He holds a Bachelor's
             in Mechanical Engineering and a Master's in Industrial Metallurgy,
             and is a certified ASME Authorized Inspector, ASNT Level III NDT
@@ -69,7 +69,7 @@ const AboutFounder = () => {
             provides services with excellence and technical integrity across
             India and the Gulf region.
           </p>
-          <ul className="list-disc list-inside text-gray-600 space-y-2">
+          <ul className="list-disc list-inside text-gray-400 space-y-2">
             <li>20+ years in engineering and consulting</li>
             <li>Certified ASME and ISO auditor</li>
             <li>Proven track record in project delivery</li>

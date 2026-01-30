@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { slideUpVariants } from "./animation";
 import emailjs from "@emailjs/browser";
+import cta from "../assets/cta.png";
 import type { FormEvent } from "react";
 const Contact = () => {
   const mapSrc =
@@ -44,7 +45,8 @@ const Contact = () => {
   return (
     <motion.div
       id="contact"
-      className="bg-blue-900 text-white text-center p-4 md:p-8"
+      className=" text-white text-center p-4 md:p-8 bg-cover bg-center bg-no-repeat"
+      style={{backgroundImage: `url(${cta})`}}
     >
       <motion.h2 className="text-4xl md:text-6xl font-semibold mb-6"
         initial="hidden"
@@ -63,24 +65,22 @@ const Contact = () => {
           className="flex flex-col justify-center gap-6 text-white p-4 md:p-8 rounded-lg lg:w-1/2 w-full min-h-[60vh]"
         >
           <motion.div
-           
-
-            className="flex lg:flex-row flex-col items-center gap-4 mb-4">
-            <span className="bg-orange-400 rounded-full p-2">
-              <Mail className="w-6 h-6 text-white" />
+            className="flex lg:flex-row flex-col items-center gap-4 mb-4   transition-colors">
+            <span className="bg-transparent rounded-full p-2">
+              <Mail className="w-6 h-6 text-white hover:text-gray-500" />
             </span>
             <a
               href="mailto:info@frightzoneengineers.com"
-              className="no-underline text-lg break-all hover:text-orange-300 transition-colors"
+              className="no-underline text-lg break-all hover:text-gray-500 transition-colors"
             >
               info@frightzoneengineers.com
             </a>
           </motion.div>
           <div className="flex lg:flex-row flex-col items-center gap-4 mb-4">
-            <span className="bg-orange-400 rounded-full p-2">
-              <Phone className="w-6 h-6 text-white" />
+            <span className="bg-transparent rounded-full p-2">
+              <Phone className="w-6 h-6 text-white hover:text-gray-500" />
             </span>
-            <span className="text-lg">9361309259, 8807343626</span>
+            <span className="text-lg">+91 9361309259, +91 8807343626</span>
           </div>
           <a
             href={mapSrc1}
@@ -88,7 +88,7 @@ const Contact = () => {
             className="flex lg:flex-row flex-col items-center gap-4 mb-4"
           >
             <motion.div
-              className="bg-orange-400 rounded-full p-2"
+              className="bg-transparent rounded-full p-2"
               // 2. Add the bounce animation
               animate={{ y: [0, -20, 0] }}
               transition={{
@@ -97,9 +97,9 @@ const Contact = () => {
                 ease: "easeInOut",
               }}
             >
-              <MapPin className="w-6 h-6 text-white" />
+              <MapPin className="w-6 h-6 text-white hover:text-gray-500" />
             </motion.div>
-            <div className="text-lg lg:text-left text-center hover:text-orange-300 transition-colors">
+            <div className="text-lg lg:text-left text-center hover:text-gray-500 transition-colors">
               Frightzoneengineers
               <br />
               5/9 Srinivasalu Naidu street,
@@ -112,10 +112,10 @@ const Contact = () => {
           <a
             href={mapSrc}
             target="_blank"
-            className="flex lg:flex-row flex-col items-center gap-4 mb-4 hover:text-orange-300 transition-colors"
+            className="flex lg:flex-row flex-col items-center gap-4 mb-4 hover:text-gray-500 transition-colors"
           >
             <motion.div
-              className="bg-orange-400 rounded-full p-2"
+              className="bg-transparent rounded-full p-2"
               // 2. Add the bounce animation
               animate={{ y: [0, -20, 0] }}
               transition={{
@@ -124,12 +124,12 @@ const Contact = () => {
                 ease: "easeInOut",
               }}
             >
-              <MapPin className="w-6 h-6 text-white" />
+              <MapPin className="w-6 h-6 text-white hover:text-gray-500" />
             </motion.div>
             <div className="text-lg lg:text-left text-center">
-              Frightzoneengineers
+              Frightzoneengineers,
               <br />
-              AJMAN FREEZONE
+              Ajman Freezone,
               <br />
               Sheik Rashid Bin Saeed Al Maktoum St,
               <br />
@@ -140,14 +140,14 @@ const Contact = () => {
 
         {/* Contact Form */}
         <motion.div
-          className="lg:w-1/2 w-full text-white bg-blue-900 p-4 md:p-8 rounded-lg flex items-center"
+          className="lg:w-1/2 w-full text-white bg-transparent p-4 md:p-8 rounded-lg flex items-center"
           initial="hidden"
           whileInView="visible"
           variants={slideUpVariants}
          
         >
           <section className="flex flex-col items-center justify-center w-full text-center">
-            <h2 className="text-3xl text-yellow-100 md:text-4xl font-semibold mb-6">
+            <h2 className="text-3xl text-gray-100 md:text-4xl font-semibold mb-6">
               Get in Touch
             </h2>
 
@@ -159,26 +159,26 @@ const Contact = () => {
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="border border-gray-300 text-black rounded px-4 py-2 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-orange-400"
+                className="border border-gray-300 text-white rounded px-4 py-2 focus:outline-none focus:border-gray-100 focus:ring-2 focus:ring-gray-100"
                 required
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
-                className="border border-gray-300 text-black rounded px-4 py-2 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-orange-400"
+                className="border border-gray-300 text-white rounded px-4 py-2 focus:outline-none focus:border-gray-100 focus:ring-2 focus:ring-gray-100"
                 required
               />
               <textarea
                 name="message"
                 rows={4}
                 placeholder="Your Message"
-                className="border border-gray-300 text-black rounded px-4 py-2 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-orange-400"
+                className="border border-gray-300 text-white rounded px-4 py-2 focus:outline-none focus:border-gray-100 focus:ring-2 focus:ring-gray-100"
                 required
               />
               <button
                 type="submit"
-                className="bg-orange-400 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-800 transition-colors font-semibold"
+                className="bg-black/90 border border-gray-100 text-white px-6 py-2 rounded-lg shadow hover:bg-white hover:text-black transition-colors font-semibold"
               >
                 Send Message
               </button>

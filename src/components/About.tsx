@@ -17,7 +17,7 @@ const About = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <motion.h2
-        className="text-3xl font-bold text-gray-100 mb-8 pt-10 text-center "
+        className="text-3xl font-bold text-gray-100 pb-4 text-center pt-2"
         initial="hidden"
         whileInView="visible"
         variants={zoomInVariants}
