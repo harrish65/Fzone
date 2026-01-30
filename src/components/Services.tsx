@@ -8,7 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { slideUpVariants } from "./animation";
 import { zoomInVariants } from "./animation";
-import servicesBg from "../assets/servicesBg.png";
+import servicesBg from "../assets/servicesbg.png";
 
 const serviceGroups = [
   {
