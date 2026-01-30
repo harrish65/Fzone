@@ -5,15 +5,16 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { zoomInVariants } from "./animation";
-// import backgroundImage from "../assets/about-bg.png";
+import backgroundImage from "../assets/services2.png";
 
 const About = () => {
   return (
     <motion.section
       className={
-        "py-12 px-4 md:px-8 lg:px-24 background-cover bg-center bg-no-repeat bg-black/90"
+        "py-12 px-4 md:px-8 lg:px-24 background-cover bg-center bg-no-repeat"
       }
       id="about"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <motion.h2
         className="text-3xl font-bold text-gray-100 mb-8 text-center"

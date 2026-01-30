@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { slideUpVariants } from "./animation";
 import { zoomInVariants } from "./animation";
+import servicesBg from "../assets/servicesBg.png";
 
 const serviceGroups = [
   {
@@ -77,14 +78,15 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="flex flex-col items-center justify-center text-center px-4 py-8 bg-blue-200"
+      className={"flex flex-col items-center justify-center text-center px-4 py-8 lg:background-fixed bg-cover bg-center bg-no-repeat bg-black/70 background-opacity-40"}
+      style={{backgroundImage:`url(${servicesBg})`, backgroundSize: "cover", backgroundPosition: "center"}}
     >
       <section className="max-w-6xl mx-auto py-12 px-4 ">
         <motion.h2
           initial="hidden"
           whileInView="visible"
           variants={zoomInVariants}
-          className="text-3xl font-bold text-center text-gray-900 mb-8">
+          className="text-3xl font-bold text-center text-white mb-8 bg-transparent px-4">
           Our Services
         </motion.h2>
         <motion.div
@@ -97,25 +99,25 @@ const Services = () => {
             return (
               <div
                 key={idx}
-                className={`bg-white rounded-lg shadow p-6 flex flex-col items-start w-full group transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-white cursor-pointer 
+                className={`bg-transparent rounded-lg border hover:border-0 border-gray-100 shadow p-6 flex flex-col items-start w-full group transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r hover:from-black/70 hover:to-black/90 cursor-pointer 
               ${idx === 4 ? "md:col-span-2" : ""}
                 `}
               >
                 <div className="flex flex-row items-center gap-2 mb-2 w-full">
-                  <div className="text-blue-700 group-hover:text-blue-900 transition-colors duration-300">
+                  <div className="text-gray-100   group-hover:text-gray-200 transition-colors duration-300">
                     {group.icon}
                   </div>
-                  <span className="text-lg md:text-xl font-bold md:ml-2 ml-1 text-left text-gray-900">
+                  <span className="text-lg md:text-xl font-bold md:ml-2 ml-1 text-left text-white">
                     {group.title}
                   </span>
                 </div>
-                <p className="text-gray-600 mb-4 md:text-start text-center">
+                <p className="text-gray-200 mb-4 md:text-start text-center">
                   {group.description}
                 </p>
-                <ul className="pl-0 text-start text-gray-700 space-y-2">
+                <ul className="pl-0 text-start text-gray-100 space-y-2">
                   {group.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-white mt-1 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
