@@ -11,13 +11,13 @@ const About = () => {
   return (
     <motion.section
       className={
-        "py-12 px-4 md:px-8 lg:px-24 background-cover bg-center bg-no-repeat"
+        "py-12 px-4 my-1 md:px-8 lg:px-24 background-cover bg-center bg-no-repeat"
       }
       id="about"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <motion.h2
-        className="text-3xl font-bold text-gray-100 mb-8 text-center"
+        className="text-3xl font-bold text-gray-100 mb-8 pt-10 text-center "
         initial="hidden"
         whileInView="visible"
         variants={zoomInVariants}
@@ -25,7 +25,7 @@ const About = () => {
         About Us
       </motion.h2>
 
-      <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
+      <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3 cursor-pointer">
         <motion.article
           className="p-6 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg shadow-sm group"
           initial="hidden"
@@ -81,7 +81,7 @@ const About = () => {
         </motion.article>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 cursor-pointer">
         <motion.div
           className="flex items-start gap-3 bg-transparent border border-gray-100 hover:border-green-900 rounded-lg p-4 group"
           initial="hidden"

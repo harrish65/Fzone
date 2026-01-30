@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import brochurePdf from "../assets/FZONE ENGINEERS (2) (1).pdf";
-import heroBg from "../assets/herobg.png";
+// import heroBg from "../assets/herobg.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -51,8 +51,8 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`w-full  shadow-md fixed top-0 left-0 z-50  backdrop-blur-sm`}
-      style={{ backgroundImage: `URL(${heroBg})` }}
+      className={`w-full  shadow-md fixed top-0 left-0 z-50  backdrop-blur-sm bg-transparent`}
+      // style={{ backgroundImage: `URL(${heroBg})` }}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo/Title */}

@@ -1,7 +1,7 @@
 // import { ShieldCheck, FileCheck2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
-import directorImg from "../assets/Director.jpg"; // Update with your actual image path
+import directorImg from "../assets/FounderIng.jpg"; // Update with your actual image path
 
 // type CommitmentBlockProps = {
 //   icon: React.ReactNode;
@@ -36,7 +36,7 @@ const AboutFounder = () => {
           <motion.img
             src={directorImg}
             alt="Director"
-            className="w-40 h-40 md:w-48 md:h-48 object-cover shadow-lg rounded-lg"
+            className="w-50 h-50 md:w-48 md:h-48 object-contain py-4  rounded-lg"
             initial="hidden"
             whileInView="visible"
             variants={zoomInVariants}
