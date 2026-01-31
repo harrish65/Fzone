@@ -78,7 +78,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className={"flex flex-col items-center justify-center text-center px-4 py-8 lg:background-fixed bg-cover bg-center bg-no-repeat bg-black/70 background-opacity-40"}
+      className={"flex flex-col items-center justify-center text-center p-4 lg:background-fixed bg-cover bg-center bg-no-repeat bg-black/70 background-opacity-40"}
       style={{backgroundImage:`url(${servicesBg})`, backgroundSize: "cover", backgroundPosition: "center"}}
     >
       <section className="max-w-6xl mx-auto py-12 px-4 ">
