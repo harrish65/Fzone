@@ -59,14 +59,14 @@ const About = ({
   const defaultSmall: SmallItem[] = [
     {
       icon: (
-        <ShieldCheck className="w-7 h-7 text-gray-100 group-hover:text-gray-800 flex-shrink-0" />
+        <ShieldCheck className="w-7 h-7 text-gray-100 group-hover:text-gray-800" />
       ),
       title: "Confidentiality",
       text: "We protect client data and project details throughout engagement.",
     },
     {
       icon: (
-        <FileCheck2 className="w-7 h-7 text-gray-100 group-hover:text-gray-800 flex-shrink-0" />
+        <FileCheck2 className="w-7 h-7 text-gray-100 group-hover:text-gray-800 " />
       ),
       title: "Audit-ready",
       text: "Deliverables and reports follow ASME/ISO standards for easy verification.",

@@ -49,7 +49,7 @@ const App = () => {
     smallItems: [
       {
         icon: (
-          <ShieldCheck className="w-7 h-7 text-gray-100 group-hover:text-green-800 flex-shrink-0" />
+          <ShieldCheck className="w-7 h-7 text-gray-100 group-hover:text-green-800 " />
         ),
         title: "Confidentiality",
         text:
@@ -57,7 +57,7 @@ const App = () => {
       },
       {
         icon: (
-          <FileCheck2 className="w-7 h-7 text-gray-100 group-hover:text-green-800 flex-shrink-0" />
+          <FileCheck2 className="w-7 h-7 text-gray-100 group-hover:text-green-800" />
         ),
         title: "Audit-ready",
         text:

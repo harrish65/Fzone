@@ -66,6 +66,7 @@ const Contact = () => {
     >
       <motion.h2
         className="text-4xl md:text-6xl font-semibold mb-6"
+      
         initial="hidden"
         whileInView="visible"
         variants={slideUpVariants}
