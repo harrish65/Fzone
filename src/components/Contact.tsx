@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { slideUpVariants } from "./animation";
-import emailjs from "@emailjs/browser";
 import cta from "../assets/cta.png";
 import type { FormEvent } from "react";
 const Contact = () => {
@@ -13,42 +12,59 @@ const Contact = () => {
   // 2. We add "&output=embed" to make it work inside your website
   // Map functionality removed. Coordinates and API loading were here.
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.currentTarget;
+    // FIXED: Use FormData to extract values safely
+    const formDataObj = new FormData(e.currentTarget);
+    const name = formDataObj.get("name")?.toString().trim();
+    const email = formDataObj.get("email")?.toString().trim();
+    const message = formDataObj.get("message")?.toString().trim();
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email.value)) {
+    
+    // Validate email
+    if (!email || !emailRegex.test(email)) {
       alert("Please enter a valid email address.");
       return;
     }
 
-    emailjs
-      .sendForm(
-        "your_actual_service_id",
-        "your_actual_template_id",
-        form,
-        "your_actual_public_key"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("Message sent successfully!");
-        },
-        (error) => {
-          console.log(error.text);
-          alert("Failed to send message.");
-        }
-      );
+    // Prepare data for API
+    const formData = {
+      name,
+      email,
+      message,
+    };
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new Error(text || `Request failed with status ${res.status}`);
+      }
+
+      alert("Message sent!");
+      e.currentTarget.reset(); // Reset the form
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+      alert("Failed to send message. Please try again later.");
+    }
   };
 
   return (
     <motion.div
       id="contact"
       className=" text-white text-center p-4 md:p-8 bg-cover bg-center bg-no-repeat"
-      style={{backgroundImage: `url(${cta})`}}
+      style={{ backgroundImage: `url(${cta})` }}
     >
-      <motion.h2 className="text-4xl md:text-6xl font-semibold mb-6"
+      <motion.h2
+        className="text-4xl md:text-6xl font-semibold mb-6"
         initial="hidden"
         whileInView="visible"
         variants={slideUpVariants}
@@ -64,8 +80,7 @@ const Contact = () => {
           variants={slideUpVariants}
           className="flex flex-col justify-center gap-6 text-white p-4 md:p-8 rounded-lg lg:w-1/2 w-full min-h-[60vh]"
         >
-          <motion.div
-            className="flex lg:flex-row flex-col items-center gap-4 mb-4   transition-colors">
+          <motion.div className="flex lg:flex-row flex-col items-center gap-4 mb-4   transition-colors">
             <span className="bg-transparent rounded-full p-2">
               <Mail className="w-6 h-6 text-white hover:text-gray-500" />
             </span>
@@ -144,7 +159,6 @@ const Contact = () => {
           initial="hidden"
           whileInView="visible"
           variants={slideUpVariants}
-         
         >
           <section className="flex flex-col items-center justify-center w-full text-center">
             <h2 className="text-3xl text-gray-100 md:text-4xl font-semibold mb-6">
