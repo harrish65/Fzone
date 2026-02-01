@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Services from "./components/Services";
 import PartnersSlider from "./components/PartnersSlider";
 import AboutFounder from "./components/AboutFounder";
+import { Toaster } from 'sonner';
 
 // import SoftwareExpertise from "./components/SoftwareExpertise";
 import About from "./components/About";
@@ -67,6 +68,7 @@ const App = () => {
   };
   return (
     <div className="min-h-screen flex flex-col">
+      <Toaster position="top-center" richColors />
       <Header />
       <main>
         <Home />
