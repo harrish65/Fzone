@@ -80,7 +80,7 @@ const Home = () => {
           variants={zoomInVariants}>
           <a
             href="#services"
-            className="inline-block bg-transparent hover:border-0 hover:bg-black/90 text-white font-semibold py-2 px-8 rounded-lg shadow transition-colors border border-white"
+            className="inline-block bg-transparent hover:border-0 hover:bg-black/50 text-white font-semibold py-2 px-8 rounded-lg shadow transition-colors border border-white"
           >
             Learn More
           </a>
