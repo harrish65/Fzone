@@ -101,7 +101,7 @@ const About = ({
           {renderCards.map((c, idx) => (
             <motion.article
               key={idx}
-              className="p-6 bg-transparent border border-gray-100 hover:border-gray-900 rounded-lg shadow-sm group  hover:bg-white/90  "
+              className="p-6 bg-transparent border border-gray-100 hover:border-gray-900 rounded-lg shadow-sm group  hover:bg-white/90"
               initial="hidden"
               whileInView="visible"
               variants={zoomInVariants}
@@ -125,20 +125,22 @@ const About = ({
             <motion.div
               key={i}
               // Fixed: Removed 'mt-2' which was causing misalignment inside the grid
-              className="flex items-start gap-3 bg-transparent border hover:text-gray-900 border-gray-100 hover:bg-white/90  rounded-lg p-3 group shadow-sm"
+              className=" bg-transparent border hover:text-gray-900 border-gray-100 hover:bg-white/90  rounded-lg p-6 group shadow-sm"
               initial="hidden"
               whileInView="visible"
               variants={zoomInVariants}
             >
+               <div className="flex items-center gap-3 mb-3">
               {s.icon}
-              <div>
-                <h2 className="font-bold text-gray-200 group-hover:text-gray-800 pb-2">
+            
+                <h2 className="text-lg font-bold text-gray-200 group-hover:text-gray-800 pb-2">
                   {s.title}
                 </h2>
+                </div>
                 <p className="text-sm text-gray-300 group-hover:text-gray-700">
                   {s.text}
                 </p>
-              </div>
+              
             </motion.div>
           ))}
         </div>

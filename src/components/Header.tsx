@@ -116,7 +116,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <motion.nav
-          className="md:hidden bg-yellow-100 border-t shadow-lg"
+          className="md:hidden bg-transparent backdrop:backdrop-blur-2xl border-t shadow-lg"
           
         >
           <div className="flex flex-col items-center px-4 py-2 gap-4">
@@ -134,8 +134,8 @@ const Header = () => {
                   href={link.href}
                   className={`font-medium transition-colors ${
                     isActive
-                      ? "text-blue-700"
-                      : "text-gray-700 hover:text-blue-700"
+                      ? "text-white"
+                      : "text-gray-300 hover:text-white"
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >
